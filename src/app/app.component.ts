@@ -22,6 +22,10 @@ export class AppComponent {
   depositBalance = 0;
   depositAcct = '';
 
+  transactions = {  accountNumber: '', dateOfTransaction: '', transactionType: '', amount: 0 };
+
+  txnData = [this.transactions];
+
   // respNice: AtmRespIF;
 
   constructor(public atmService: AtmServiceService) {
@@ -31,7 +35,7 @@ export class AppComponent {
       this.message = value.message;
     });
 
-    atmService.getBalance('23232-1').subscribe( value => {
+    atmService.getBalance('2222-1').subscribe( value => {
       this.balance = value.currentBalance;
       this.acct   = value.accountNumber;
 
@@ -40,20 +44,19 @@ export class AppComponent {
       // this.acct    = this.respNice.accountNumber;
     });
 
-    atmService.withdraw('23232-1', 35).subscribe( value => {
+    atmService.withdraw('2222-1', 35).subscribe( value => {
       this.withDrawBalance = value.currentBalance;
       this.withDrawAcct   = value.accountNumber;
     });
 
-    atmService.deposit('23232-1', 75).subscribe( value => {
+    atmService.deposit('2222-1', 75).subscribe( value => {
       this.depositBalance = value.currentBalance;
       this.depositAcct   = value.accountNumber;
     });
 
-//    atmService.getLastOperation('2222-3').subscribe( value => {
-//      const result: TransactionList = new TransactionList();
-//      this.result = value.transactions;
-//    });
+    atmService.getLastOperation('2222-1').subscribe( value => {
+      this.txnData = value.transactions;
+    });
 
   }
 }

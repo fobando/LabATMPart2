@@ -8,13 +8,13 @@ export interface IsAlive {
     message: string;
 }
 
-export class TransactionModel {
+export interface TransactionModel {
     accountNumber: string;
-    dateOfTransaction: Date = new Date();
+    dateOfTransaction: string;
     transactionType: string;
     amount: number;
 }
 
-export class TransactionList {
-    transactions: Array<TransactionModel> = [];
+export interface TransactionList {
+    transactions: Array<TransactionModel>;
 }

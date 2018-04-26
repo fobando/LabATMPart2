@@ -14,4 +14,14 @@
   <p>WithDraw Balance {{withDrawBalance}}</p>
 
   <h2>Acct No. {{depositAcct}}</h2>
-  <p>WithDraw Balance {{depositBalance}}</p>
+  <p>Deposit Balance {{depositBalance}}</p>
+  
+  <h2>Transaction Listing</h2>
+  <p>Account - Date - Transction Type - Amount</p>
+
+  <ul>
+    <li *ngFor="let txn of txnData">
+      {{txn.accountNumber}}    -    {{txn.dateOfTransaction}}    -    {{txn.transactionType}}    -    {{txn.amount}}
+    </li>
+  </ul>
+

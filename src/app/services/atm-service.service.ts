@@ -33,7 +33,7 @@ export class AtmServiceService {
    }
 
    // '/atm/transactions/:acct'
-   getLastOperation (acct: string) { // : Array<string>;
+   getLastOperation (acct: string) {
         return this.http.get<TransactionList>(this.URLEP4 + acct);
    }
 }
